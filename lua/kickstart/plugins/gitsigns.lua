@@ -6,6 +6,8 @@ return {
   {
     'lewis6991/gitsigns.nvim',
     opts = {
+      numhl = true, -- Toggle with `:Gitsigns toggle_numhl`
+      current_line_blame = true,
       on_attach = function(bufnr)
         local gitsigns = require 'gitsigns'
 
