@@ -213,7 +213,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
   callback = function()
-    vim.hl.on_yank({ timeout = 500 })
+    vim.hl.on_yank { timeout = 500 }
   end,
 })
 
@@ -469,7 +469,7 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
-      vim.keymap.set("n", "<leader>si", builtin.lsp_incoming_calls, { desc = "[S]earch [I]ncoming calls" })
+      vim.keymap.set('n', '<leader>si', builtin.lsp_incoming_calls, { desc = '[S]earch [I]ncoming calls' })
 
       -- Slightly advanced example of overriding default behavior and theme
       --[[ vim.keymap.set('n', '<leader>/', function()
@@ -917,6 +917,39 @@ require('lazy').setup({
         -- By default, you may press `<c-space>` to show the documentation.
         -- Optionally, set `auto_show = true` to show the documentation after a delay.
         documentation = { auto_show = false, auto_show_delay_ms = 500 },
+        menu = {
+          draw = {
+            components = {
+              -- customize the drawing of kind icons
+              kind_icon = {
+                text = function(ctx)
+                  -- default kind icon
+                  local icon = ctx.kind_icon
+                  -- if LSP source, check for color derived from documentation
+                  if ctx.item.source_name == 'LSP' then
+                    local color_item = require('nvim-highlight-colors').format(ctx.item.documentation, { kind = ctx.kind })
+                    if color_item and color_item.abbr ~= '' then
+                      icon = color_item.abbr
+                    end
+                  end
+                  return icon .. ctx.icon_gap
+                end,
+                highlight = function(ctx)
+                  -- default highlight group
+                  local highlight = 'BlinkCmpKind' .. ctx.kind
+                  -- if LSP source, check for color derived from documentation
+                  if ctx.item.source_name == 'LSP' then
+                    local color_item = require('nvim-highlight-colors').format(ctx.item.documentation, { kind = ctx.kind })
+                    if color_item and color_item.abbr_hl_group then
+                      highlight = color_item.abbr_hl_group
+                    end
+                  end
+                  return highlight
+                end,
+              },
+            },
+          },
+        },
       },
 
       sources = {
@@ -935,7 +968,7 @@ require('lazy').setup({
       -- the rust implementation via `'prefer_rust_with_warning'`
       --
       -- See :h blink-cmp-config-fuzzy for more information
-      fuzzy = { implementation = 'lua' },
+      fuzzy = { implementation = 'prefer_rust_with_warning' },
 
       -- Shows a signature help window while you type arguments for a function
       signature = { enabled = true },
@@ -1050,7 +1083,7 @@ require('lazy').setup({
   -- require 'kickstart.plugins.debug',
   require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
-  -- require 'kickstart.plugins.autopairs',
+  require 'kickstart.plugins.autopairs',
   -- require 'kickstart.plugins.neo-tree',
   require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
