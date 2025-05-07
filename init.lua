@@ -161,8 +161,7 @@ vim.opt.scrolloff = 10
 -- See `:help 'confirm'`
 vim.opt.confirm = true
 
-g_border = 'rounded'
-vim.opt.winborder = g_border
+vim.opt.winborder = 'rounded'
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
@@ -668,7 +667,7 @@ require('lazy').setup({
       vim.diagnostic.config {
         jump = { float = true, wrap = false },
         severity_sort = true,
-        float = { border = g_border, source = 'if_many' },
+        float = { source = 'if_many' },
         underline = { severity = vim.diagnostic.severity.ERROR },
         signs = vim.g.have_nerd_font and {
           text = {
@@ -1116,7 +1115,7 @@ require('lazy').setup({
       task = '📌',
       lazy = '💤 ',
     },
-    border = g_border,
+    border = 'rounded',
   },
 })
 
