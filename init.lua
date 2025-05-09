@@ -427,6 +427,7 @@ require('lazy').setup({
         -- pickers = {}
         extensions = {
           file_browser = {
+            initial_mode = 'normal',
             layout_strategy = 'horizontal',
             path = '%:p:h',
             cwd = '%:p:h',
