@@ -270,6 +270,19 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- add recipe for showing function signature after completion
+vim.api.nvim_create_autocmd('User', {
+  pattern = 'BlinkCmpAccept',
+  callback = function(ev)
+    local item = ev.data.item
+    if item.kind == require('blink.cmp.types').CompletionItemKind.Function then
+      vim.defer_fn(function()
+        require('blink.cmp').show_signature()
+      end, 10)
+    end
+  end,
+})
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -957,8 +970,7 @@ require('lazy').setup({
         -- <c-k>: Toggle signature help
         --
         -- See :h blink-cmp-config-keymap for defining your own keymap
-        preset = 'default',
-        ['<Tab>'] = { 'accept', 'fallback' },
+        preset = 'super-tab',
 
         -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
@@ -1013,6 +1025,12 @@ require('lazy').setup({
         default = { 'lsp', 'path', 'snippets', 'lazydev' },
         providers = {
           lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
+          cmdline = {
+            -- ignores cmdline completions when executing shell commands
+            enabled = function()
+              return vim.fn.getcmdtype() ~= ':' or not vim.fn.getcmdline():match "^[%%0-9,'<>%-]*!"
+            end,
+          },
         },
       },
 
@@ -1031,8 +1049,8 @@ require('lazy').setup({
       signature = { enabled = true },
       cmdline = {
         keymap = {
-          -- recommended, as the default keymap will only show and select the next item
-          ['<Tab>'] = { 'show', 'accept' },
+          preset = 'cmdline',
+          ['<Tab>'] = { 'accept' },
         },
         completion = { menu = { auto_show = true } },
       },
