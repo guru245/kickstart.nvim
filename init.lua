@@ -98,6 +98,50 @@ vim.g.have_nerd_font = true
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
 
+-- Turn on plugin and indent, depending on file type
+vim.cmd 'filetype plugin indent on'
+
+vim.o.wrap = false
+vim.o.guicursor = ''
+
+-- Set tab size
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
+vim.o.softtabstop = 4
+
+-- Tell Vim to delete the white space at the start of the line, a line break
+-- and the character before where Insert mode started.
+vim.o.backspace = 'indent,eol,start'
+
+-- Work for C-like programs, but can also be used for other languages
+vim.o.smartindent = true
+
+-- Copy indent from current line when starting a new line. This should be
+-- on when smartindent is used.
+vim.o.autoindent = true
+
+-- Set indent for switch statement in C. Just my cup of tea.
+vim.o.cinoptions = ':0'
+
+-- Determine the 'fileencoding' of a file being opened.
+vim.o.fileencodings = 'utf-8,cp949,cp932,euc-kr,shift-jis,big5,ucs-2le,latin'
+
+-- Represent data in memory
+vim.o.encoding = 'utf-8'
+
+-- Use only unix fileformat. "dos" can be added like "unix, dos"
+vim.o.fileformats = 'unix'
+
+-- Set 80, 100 column guideline
+vim.cmd 'set colorcolumn=100'
+vim.cmd 'let &colorcolumn="80,".join(range(100,100),",")'
+
+-- Not search wrap around the end of a file
+vim.o.wrapscan = false
+
+-- Jump to one to the other using %. Various character can be added.
+vim.opt.matchpairs:append '<:>'
+
 -- Make line numbers default
 vim.o.number = true
 -- You can also add relative line numbers, to help with jumping.
@@ -166,10 +210,15 @@ vim.o.scrolloff = 10
 -- See `:help 'confirm'`
 vim.o.confirm = true
 
-vim.opt.winborder = 'rounded'
+vim.o.winborder = 'rounded'
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
+
+-- Move source code by tab size. Tab is right move and Shift+tab is left.
+vim.keymap.set('v', '<Tab>', '>gv')
+vim.keymap.set('v', '<S-Tab>', '<gv')
+vim.keymap.set('n', '<F2>', '<Cmd>w!<CR>')
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
