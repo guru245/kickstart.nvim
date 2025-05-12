@@ -19,15 +19,17 @@ return {
       'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
       'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
     },
-    config = function()
-      require('barbar').setup {}
+    init = function()
       local opts = { noremap = true, silent = true }
+
+      vim.g.barbar_auto_setup = false
       vim.keymap.set('n', '<C-h>', '<Cmd>BufferPrevious<CR>', opts)
       vim.keymap.set('n', '<C-l>', '<Cmd>BufferNext<CR>', opts)
 
       -- Save and close the buffer
       vim.keymap.set('n', ',w', '<Cmd>BufferClose<CR>', { desc = 'Close the buffer' })
     end,
+    opts = {},
   },
   {
     'numToStr/Comment.nvim',
