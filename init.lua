@@ -784,7 +784,7 @@ require('lazy').setup({
           '--clang-tidy',
         },
         -- gopls = {},
-        pyright = {},
+        pylsp = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -826,6 +826,7 @@ require('lazy').setup({
       -- for you, so that they are available from within Neovim.
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
+        'autopep8',
         'stylua', -- Used to format Lua code
         'clang-format',
       })
@@ -880,11 +881,12 @@ require('lazy').setup({
       end, ]]
       default_format_opts = {
         lsp_format = 'never',
-        async = false, -- not recommended to change
+        async = true, -- not recommended to change
         quiet = false, -- not recommended to change
       },
       formatters_by_ft = {
         lua = { 'stylua' },
+        python = { 'autopep8' },
         c = { 'clang-format' },
         cpp = { 'clang-format' },
         ['*'] = { 'trim_whitespace' },
@@ -905,7 +907,7 @@ require('lazy').setup({
         }
       end
       require('conform').format {
-        async = false,
+        async = true,
         range = range,
       }
     end, { range = true }),
