@@ -33,9 +33,7 @@ return {
   },
   {
     'numToStr/Comment.nvim',
-    opts = {
-      -- add any options here
-    },
+    opts = {},
   },
   {
     'preservim/tagbar',
@@ -49,14 +47,8 @@ return {
       vim.cmd 'let g:tagbar_autofocus = 1'
     end,
   },
-  {
-    'farmergreg/vim-lastplace',
-    event = { 'BufReadPost' },
-  },
-  {
-    'ayuanx/vim-mark-standalone',
-    event = { 'BufReadPost' },
-  },
+  'farmergreg/vim-lastplace',
+  'ayuanx/vim-mark-standalone',
   {
     'OXY2DEV/markview.nvim',
     dependencies = {
@@ -92,10 +84,7 @@ return {
   },
   {
     'brenoprata10/nvim-highlight-colors',
-    event = { 'BufReadPost' },
-    opts = {
-      -- add any options here
-    },
+    opts = {},
   },
   {
     'guru245/lualine.nvim',
@@ -134,7 +123,6 @@ return {
   },
   {
     'karb94/neoscroll.nvim',
-    event = { 'BufReadPost' },
     opts = {},
   },
 }

@@ -211,6 +211,7 @@ vim.o.scrolloff = 10
 vim.o.confirm = true
 
 vim.o.winborder = 'rounded'
+vim.o.termguicolors = true
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
