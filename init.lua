@@ -113,6 +113,9 @@ vim.o.softtabstop = 4
 -- and the character before where Insert mode started.
 vim.o.backspace = 'indent,eol,start'
 
+-- Use spaces instead of tabs
+vim.o.expandtab = true
+
 -- Work for C-like programs, but can also be used for other languages
 vim.o.smartindent = true
 
