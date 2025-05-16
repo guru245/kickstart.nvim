@@ -45,6 +45,8 @@ return {
       vim.cmd 'let g:tagbar_width = 30'
       vim.cmd 'let g:tagbar_sort = 1'
       vim.cmd 'let g:tagbar_autofocus = 1'
+      vim.cmd 'let g:tagbar_show_suffix = 0'
+      vim.cmd 'let g:tagbar_silent = 1'
     end,
   },
   'farmergreg/vim-lastplace',
