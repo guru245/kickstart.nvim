@@ -1,4 +1,4 @@
-# NVIM Studio
+# Kickstart
 
 If you are a VS Code user, I won’t say anything. However, if you are a Vim
 user, you must use Neovim. The reason is that Neovim provides better plugins,
@@ -6,8 +6,9 @@ better UI, and most importantly LSP support. It’s not a stretch to say that
 Neovim is the future.
 
 That being said, Neovim has a steep learning curve even for Vim experts. This
-is where NVIM studio comes in. NVIM studio will help you understand how to set
-up Neovim, providing a basic platform to foster your own setting.
+is where Kickstart comes in. Kickstart will help you understand how to set
+up Neovim, providing a starting point to foster your own setting. What's more,
+on top of the original kickstart, I added my own setting.
 
 ![overview](./.img/overview.png)
 
@@ -21,7 +22,7 @@ up Neovim, providing a basic platform to foster your own setting.
     ![diagnostic_hover](./.img/diagnostic_hover.png)
   - Auto completion
     ![autocompletion](./.img/autocompletion.png)
-  - Linting and formatting
+  - Formatting
 
 * Better highlighting
 
@@ -44,11 +45,14 @@ up Neovim, providing a basic platform to foster your own setting.
 * Markview that enriches markdown previews
   ![markview](./.img/markview.png)
 
+* Which-key that helps you use key mappings
+  ![which-key](./.img/which-key.png)
+
 
 
 ## Prerequisites
 
-You should set up a good environment to make your NVIM life easier. NVIM Studio
+You should set up a good environment to make your neovim life easier. Neovim
 is running in the following environments:
 
 * Ubuntu 20.04 or above
@@ -168,14 +172,9 @@ nvim
 
 ## Setting up LSP
 
-Before you dive in, you need to understand how to utilize LSP 
-(Language Server Protocol). To fully utilize LSP, you need to create 
-`compile_commands.json`. `compile_commands.json` can be created by *bear*. 
-You can [see how to use *bear*](https://github.com/rizsotto/Bear?tab=readme-ov-file#how-to-use). 
-When you succeed in creating the json file, you are ready to move on.
-
-Next, you must install a language server that fits your needs. Run `:Mason` 
-in the nvim commandline. Just then, you will see the following screen.
+To enable LSP, you must install a language server that fits your language.
+Run `:Mason` in the nvim commandline. Just then, you will see the following
+screen.
 
 ![mason](./.img/mason.png)
 
@@ -187,14 +186,19 @@ After installing the LSP, you need to specify the LSP name in init.lua as follow
 
 ```lua
 local servers = {
-  'clangd',
-  'rust_analyzer',
-  'pylsp',
-  'lua_ls',
-  'cmake',
-  'efm',
+  clangd = {
+    'clangd',
+    '--clang-tidy',
+  },
+  pylsp = { },
+  lua_ls = { }',
 }
 ```
+> [!Note]
+As for C or C++, you need to create 
+`compile_commands.json`. `compile_commands.json` can be created by *bear*.
+You can [see how to use *bear*](https://github.com/rizsotto/Bear?tab=readme-ov-file#how-to-use). 
+When you succeed in creating the json file, you are ready to move on.
 
 
 
