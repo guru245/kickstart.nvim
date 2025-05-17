@@ -422,6 +422,7 @@ require('lazy').setup({
         { '<leader>s', icon = ' ', group = '[S]earch' },
         { '<leader>t', icon = ' ', group = '[T]oggle' },
         { '<leader>h', icon = '󰊢', group = 'Git [H]unk', mode = { 'n', 'v' } },
+        { '<leader>d', icon = '󰊢', group = '[D]iffview', mode = { 'n', 'v' } },
         { 'gr', icon = '󱁽', group = 'LSP: ' },
       },
     },
@@ -1080,7 +1081,12 @@ require('lazy').setup({
   },
 
   -- Highlight todo, notes, etc in comments
-  { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'guru245/plenary.nvim' }, opts = { signs = false } },
+  {
+    'folke/todo-comments.nvim',
+    event = 'VimEnter',
+    dependencies = { 'guru245/plenary.nvim' },
+    opts = {},
+  },
 
   --[[ { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
