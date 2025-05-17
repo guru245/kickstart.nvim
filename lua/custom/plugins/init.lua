@@ -147,6 +147,9 @@ return {
           ['cmp.entry.get_documentation'] = true, -- requires hrsh7th/nvim-cmp
         },
       },
+      messages = {
+        view = 'mini',
+      },
       presets = {
         bottom_search = false, -- use a classic bottom cmdline for search
         command_palette = false, -- position the cmdline and popupmenu together
