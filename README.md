@@ -195,10 +195,11 @@ local servers = {
 }
 ```
 > [!Note]
-As for C or C++, you need to create 
-`compile_commands.json`. `compile_commands.json` can be created by *bear*.
-You can [see how to use *bear*](https://github.com/rizsotto/Bear?tab=readme-ov-file#how-to-use). 
-When you succeed in creating the json file, you are ready to move on.
+> As for C or C++, you need to create 
+> `compile_commands.json`. `compile_commands.json` can be created by *bear*.
+> You can [see how to use
+> bear](https://github.com/rizsotto/Bear?tab=readme-ov-file#how-to-use).
+> When you succeed in creating the json file, you are ready to move on.
 
 
 
