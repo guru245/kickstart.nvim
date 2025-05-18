@@ -50,7 +50,13 @@ return {
     end,
   },
   'farmergreg/vim-lastplace',
-  'ayuanx/vim-mark-standalone',
+  {
+    'inkarkat/vim-mark',
+    dependencies = { 'inkarkat/vim-ingo-library' },
+    init = function()
+      vim.cmd 'let g:mwDefaultHighlightingPalette = "maximum"'
+    end,
+  },
   {
     'OXY2DEV/markview.nvim',
     dependencies = {
