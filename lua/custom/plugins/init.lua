@@ -154,7 +154,7 @@ return {
         },
       },
       messages = {
-        view = 'mini',
+        enabled = false,
       },
       presets = {
         bottom_search = false, -- use a classic bottom cmdline for search
