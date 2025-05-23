@@ -77,7 +77,7 @@ return {
     'sindrets/diffview.nvim',
     keys = {
       { '<leader>do', '<Cmd>DiffviewOpen<CR>', desc = '[D]iffview [O]pen' },
-      { '<leader>df', '<Cmd>DiffviewFileHistory %<CR>', desc = '[D]iffview' },
+      { '<leader>df', '<Cmd>DiffviewFileHistory %<CR>', desc = '[D]iffview [F]ile History' },
       { '<leader>dF', '<Cmd>DiffviewFileHistory<CR>', desc = '[D]iffview [F]iles History' },
       { '<leader>dc', '<Cmd>DiffviewClose<CR>', desc = '[D]iffview [C]lose' },
     },
