@@ -263,20 +263,20 @@ This helps you write comments. See all mappings [here](https://github.com/numToS
 
 
 
-## Telescope Usage
+## Snacks.picker Usage
 
 ![telescope](./.img/telescope.png)
 
-Telescope helps you navigate the code. To perform telescope searching, refer to the following keymaps:
+Snacks.picker helps you navigate the code. To perform picker searching, refer to the following keymaps:
 
 | keymap | desc |
 |--------|------|
 | `<leader>sh` | Search Help |
-| `<leader>ss` | Search Select Telescope |
+| `<leader>sm` | Search Man pages |
+| `<leader>ss` | Search Select Picker |
 | `<leader>sf` | Lists files in your current working directory, respects .gitignore |
-| `<leader>fb` | Open Telescope file browser |
+| `<leader>fb` | Open file browser |
 | `<leader>sg` | Search for a string in your current working directory and get results live as you type |
-| `<leader>si` | Lists LSP incoming calls for word under the cursor |
 | `<leader>sw` | Searches for the string under your cursor or selection in your current working directory |
 | `grn` | Rename the variable under your cursor
 | `gra` | Excute a code action |
@@ -286,12 +286,13 @@ Telescope helps you navigate the code. To perform telescope searching, refer to 
 | `grD` | Goto the declaration, e.g., in C this would take you to the header |
 | `gO` | Find all the symbols in your current document |
 | `grt` | Jump to the type of the word under your cursor |
+| `grc` | Lists LSP incoming calls for word under the cursor |
 
-FYI, the keymaps starting with `g` are default mappings introduced in neovim
+FYI, the keymaps starting with `g` are default mappings introduced starting neovim
 v0.11.0.
 
 For the file browser mappings, see [here](https://github.com/nvim-telescope/telescope-file-browser.nvim?tab=readme-ov-file#mappings). 
 Note that `goto_parent_dir` is mapped to `u` due to the conflict between
 Telescope and file browser. The bug report has been submitted.
 
-For the other Telescope mappings, see [here](https://github.com/nvim-telescope/telescope.nvim?tab=readme-ov-file#default-mappings).
+For the other picker mappings, see [here](https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#general).
