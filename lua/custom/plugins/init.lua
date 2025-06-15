@@ -165,4 +165,57 @@ return {
       },
     },
   },
+  {
+    'folke/snacks.nvim',
+    priority = 1000,
+    lazy = false,
+    ---@type snacks.Config
+    dependencies = {
+      { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+      'echasnovski/mini.icons',
+    },
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+      picker = {
+        layout = {
+          cycle = false,
+          preset = 'vertical',
+          layout = {
+            backdrop = false,
+            width = 0.85,
+            min_width = 80,
+            height = 0.85,
+            min_height = 30,
+            box = 'vertical',
+            border = 'rounded',
+            title = '{title} {live} {flags}',
+            title_pos = 'center',
+            { win = 'input', height = 1, border = 'bottom' },
+            { win = 'list', border = 'none' },
+            { win = 'preview', title = '{preview}', height = 0.6, border = 'top' },
+          },
+        },
+      },
+    },
+    keys = {
+      -- stylua: ignore start
+      { '<leader>sh', function() Snacks.picker.help() end, desc = '[S]earch [H]elp', },
+      { '<leader>sm', function() Snacks.picker.man() end, desc = '[S]earch [M]an pages', },
+      { '<leader>sk', function() Snacks.picker.keymaps() end, desc = '[S]earch [K]eymaps' },
+      { '<leader>sf', function() Snacks.picker.files() end, desc = '[S]earch [F]iles', },
+      { '<leader>ss', function() Snacks.picker.pick() end, desc = '[S]earch [S]elect Picker', },
+      { '<leader>sw', function() Snacks.picker.grep_word() end, desc = '[S]earch current [W]ord', mode = { 'n', 'x' } },
+      { '<leader>sg', function() Snacks.picker.grep() end, desc = '[S]earch by [G]rep' },
+      { '<leader>sd', function() Snacks.picker.diagnostics() end, desc = '[S]earch [D]iagnostics' },
+      { '<leader>sr', function() Snacks.picker.resume() end, desc = '[S]earch [R]esume' },
+      { '<leader>s.', function() Snacks.picker.recent() end, desc = '[S]earch Recent Files ("." for repeat)' },
+      { '<leader><leader>', function() Snacks.picker.buffers() end, desc = '[ ] Find existing buffers' },
+      { '<leader>s/', function() Snacks.picker.grep_buffers() end, desc = '[/] Fuzzily search in current buffer' },
+      { '<leader>st', function() Snacks.picker.todo_comments() end, desc = '[S]earch [T]odo' },
+      { '<leader>sT', function () Snacks.picker.todo_comments({ keywords = { 'TODO', 'FIX', 'FIXME' } }) end, desc = '[S]earch [T]odo/Fix/Fixme' },
+      -- stylua: ignore end
+    },
+  },
 }
