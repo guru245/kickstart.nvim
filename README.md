@@ -213,11 +213,11 @@ local servers = {
 
 * `Esc`: Clear all marks
 
-* `ctrl+h`, `ctrl+l`: Go to the tab on the left/right
+* `alt+,`, `alt+.`: Go to the tab on the left/right
 
 * `alt+h`, `alt+l`, `alt+k`, `alt+j`:  Move between nvim panes
 
-* `,w`: Save and close the current buffer.
+* `alt+c`: Save and close the current buffer.
 
 * `<leader>m`: Mark the keyword under the cursor. See more mappings [here](https://github.com/inkarkat/vim-mark?tab=readme-ov-file#usage)
 * `K`: Shows a function prototype in a pop up.

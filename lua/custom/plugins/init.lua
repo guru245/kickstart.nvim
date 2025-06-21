@@ -19,16 +19,19 @@ return {
       'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
       'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
     },
-    init = function()
-      local opts = { noremap = true, silent = true }
+    event = 'BufEnter',
+    keys = {
+      -- Move to previous/next
+      { '<A-,>', '<Cmd>BufferPrevious<CR>', silent = true },
+      { '<A-.>', '<Cmd>BufferNext<CR>', silent = true },
 
-      vim.g.barbar_auto_setup = false
-      vim.keymap.set('n', '<C-h>', '<Cmd>BufferPrevious<CR>', opts)
-      vim.keymap.set('n', '<C-l>', '<Cmd>BufferNext<CR>', opts)
+      -- Re-order to previous/next
+      { '<A-<>', '<Cmd>BufferMovePrevious<CR>', silent = true },
+      { '<A->>', '<Cmd>BufferMoveNext<CR>', silent = true },
 
-      -- Save and close the buffer
-      vim.keymap.set('n', ',w', '<Cmd>BufferClose<CR>', { desc = 'Close the buffer' })
-    end,
+      -- Close buffer
+      { '<A-c>', '<Cmd>BufferClose<CR>', silent = true },
+    },
     opts = {},
   },
   {
