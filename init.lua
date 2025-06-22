@@ -454,13 +454,12 @@ require('lazy').setup({
           return vim.fn.executable 'make' == 1
         end,
       },
-      { 'nvim-telescope/telescope-ui-select.nvim' },
+      -- { 'nvim-telescope/telescope-ui-select.nvim' },
 
       -- Useful for getting pretty icons, but requires a Nerd Font.
       { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
 
-      'nvim-telescope/telescope-file-browser.nvim',
-      -- 'brookhong/telescope-pathogen.nvim',
+      { 'nvim-telescope/telescope-file-browser.nvim' },
     },
     config = function()
       -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -520,21 +519,16 @@ require('lazy').setup({
               },
             },
           },
-          ['ui-select'] = {
-            require('telescope.themes').get_dropdown(),
-          },
-          -- ['pathogen'] = {
-          --   use_last_search_for_live_grep = false,
-          --   prompt_prefix_length = 50,
+          -- ['ui-select'] = {
+          --   require('telescope.themes').get_dropdown(),
           -- },
         },
       }
 
       -- Enable Telescope extensions if they are installed
       pcall(require('telescope').load_extension, 'fzf')
-      pcall(require('telescope').load_extension, 'ui-select')
+      -- pcall(require('telescope').load_extension, 'ui-select')
       pcall(require('telescope').load_extension, 'file_browser')
-      -- pcall(require('telescope').load_extension, 'pathogen')
 
       -- See `:help telescope.builtin`
       -- local builtin = require 'telescope.builtin'
