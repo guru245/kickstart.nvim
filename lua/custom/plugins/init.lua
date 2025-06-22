@@ -204,10 +204,10 @@ return {
     },
     keys = {
       -- stylua: ignore start
-      { '<leader>sh', function() Snacks.picker.help() end, desc = '[S]earch [H]elp', },
-      { '<leader>sm', function() Snacks.picker.man() end, desc = '[S]earch [M]an pages', },
+      { '<leader>sh', function() Snacks.picker.help() end, desc = '[S]earch [H]elp' },
+      { '<leader>sm', function() Snacks.picker.man() end, desc = '[S]earch [M]an pages' },
       { '<leader>sk', function() Snacks.picker.keymaps() end, desc = '[S]earch [K]eymaps' },
-      { '<leader>sf', function() Snacks.picker.files() end, desc = '[S]earch [F]iles', },
+      { '<leader>sf', function() Snacks.picker.files() end, desc = '[S]earch [F]iles' },
       { '<leader>ss', function() Snacks.picker.pick() end, desc = '[S]earch [S]elect Picker', },
       { '<leader>sw', function() Snacks.picker.grep_word() end, desc = '[S]earch current [W]ord', mode = { 'n', 'x' } },
       { '<leader>sg', function() Snacks.picker.grep() end, desc = '[S]earch by [G]rep' },
