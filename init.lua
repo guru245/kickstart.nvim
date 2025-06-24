@@ -684,6 +684,8 @@ require('lazy').setup({
 
           -- Jump to the caller of the word under your cursor.
           map('grc', require('telescope.builtin').lsp_incoming_calls, '[G]oto [C]allers')
+
+          map('<leader>td', function() vim.diagnostic.enable(not vim.diagnostic.is_enabled()) end, '[T]oggle [D]iagnostics')
           -- stylua: ignore end
 
           -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
