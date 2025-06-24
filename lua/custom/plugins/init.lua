@@ -50,6 +50,7 @@ return {
       vim.cmd 'let g:tagbar_autofocus = 1'
       vim.cmd 'let g:tagbar_show_suffix = 0'
       vim.cmd 'let g:tagbar_silent = 1'
+      vim.cmd 'let g:tagbar_scrolloff = 10'
     end,
   },
   'farmergreg/vim-lastplace',
