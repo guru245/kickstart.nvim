@@ -63,12 +63,12 @@ return {
   },
   {
     'OXY2DEV/markview.nvim',
+    lazy = false,
     dependencies = {
       'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
       'echasnovski/mini.icons',
       'saghen/blink.cmp',
     },
-    ft = { 'markdown' },
     opts = {
       preview = {
         icon_provider = 'internal',
@@ -221,5 +221,7 @@ return {
       { '<leader>sT', function () Snacks.picker.todo_comments({ keywords = { 'TODO', 'FIX', 'FIXME' } }) end, desc = '[S]earch [T]odo/Fix/Fixme' },
       -- stylua: ignore end
     },
+  },
+  {
   },
 }
