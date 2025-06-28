@@ -223,5 +223,50 @@ return {
     },
   },
   {
+    'olimorris/persisted.nvim',
+    event = 'BufReadPre', -- Ensure the plugin loads only when a buffer has been loaded
+    keys = {
+      { '<leader>sp', '<Cmd>Telescope persisted<CR>', desc = '[S]earch [P]roject' },
+    },
+    config = function()
+      local utils = require 'persisted.utils'
+      local allowed_dirs = {
+        '~/.local/src',
+      }
+      require('persisted').setup {
+        should_save = function()
+          return utils.dirs_match(vim.fn.getcwd(), allowed_dirs)
+        end,
+        use_git_branch = true,
+      }
+      require('telescope').setup {
+        extensions = {
+          persisted = {
+            initial_mode = 'normal',
+          },
+        },
+      }
+      pcall(require('telescope').load_extension 'persisted')
+
+      vim.opt.sessionoptions:append 'globals'
+      vim.api.nvim_create_autocmd({ 'User' }, {
+        pattern = 'PersistedSavePre',
+        group = vim.api.nvim_create_augroup('PersistedHooks', {}),
+        callback = function()
+          vim.api.nvim_exec_autocmds('User', { pattern = 'SessionSavePre' })
+        end,
+      })
+
+      vim.api.nvim_create_autocmd('User', {
+        pattern = 'PersistedTelescopeLoadPre',
+        callback = function(session)
+          -- Save the currently loaded session passing in the path to the current session
+          require('persisted').save { session = vim.g.persisted_loaded_session }
+
+          -- Delete all of the open buffers
+          vim.api.nvim_input '<ESC>:%bd!<CR>'
+        end,
+      })
+    end,
   },
 }
