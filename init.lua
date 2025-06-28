@@ -479,8 +479,8 @@ require('lazy').setup({
           sorting_strategy = 'ascending',
           layout_config = {
             vertical = {
-              height = 0.9,
-              width = 0.95,
+              height = 0.85,
+              width = 0.85,
               prompt_position = 'top',
               preview_height = 0.6,
               mirror = true,
@@ -698,11 +698,11 @@ require('lazy').setup({
             --   callback = vim.lsp.buf.document_highlight,
             -- })
 
-            vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
-              buffer = event.buf,
-              group = highlight_augroup,
-              callback = vim.lsp.buf.clear_references,
-            })
+            -- vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
+            --   buffer = event.buf,
+            --   group = highlight_augroup,
+            --   callback = vim.lsp.buf.clear_references,
+            -- })
 
             vim.api.nvim_create_autocmd('LspDetach', {
               group = vim.api.nvim_create_augroup('kickstart-lsp-detach', { clear = true }),
