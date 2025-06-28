@@ -274,19 +274,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
--- add recipe for showing function signature after completion
-vim.api.nvim_create_autocmd('User', {
-  pattern = 'BlinkCmpAccept',
-  callback = function(ev)
-    local item = ev.data.item
-    if item.kind == require('blink.cmp.types').CompletionItemKind.Function then
-      vim.defer_fn(function()
-        require('blink.cmp').show_signature()
-      end, 10)
-    end
-  end,
-})
-
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -1042,7 +1029,12 @@ require('lazy').setup({
       fuzzy = { implementation = 'prefer_rust_with_warning' },
 
       -- Shows a signature help window while you type arguments for a function
-      signature = { enabled = true },
+      signature = {
+        enabled = true,
+        trigger = {
+          enabled = true,
+        },
+      },
       cmdline = {
         keymap = {
           preset = 'cmdline',
