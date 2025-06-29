@@ -10,11 +10,17 @@ is where Kickstart comes in. Kickstart will help you understand how to set
 up Neovim, providing a starting point to foster your own setting. What's more,
 on top of the original kickstart, I added my own setting.
 
+![dashboard](./.img/dashboard.png)
+
 ![overview](./.img/overview.png)
 
 
 
 ## Features
+* Session Management (via [persisted.nvim](https://github.com/olimorris/persisted.nvim))
+  - Project-based session handling
+  - No more hassle of manually opening files: Just open your project and your
+    session is restored
 
 * LSP support that provides:
   - Jump-to-definition, find-references and more powered by Telescope.  
@@ -38,7 +44,7 @@ on top of the original kickstart, I added my own setting.
 
   ![marker](./.img/marker.png)
 
-* Yank to the system clipboard and vice versa
+* Yank (copy) to the system clipboard and vice versa
 
   ![yank](./.img/yank.gif)
 
@@ -267,26 +273,28 @@ This helps you write comments. See all mappings [here](https://github.com/numToS
 
 ![telescope](./.img/telescope.png)
 
-Snacks.picker helps you navigate the code. To perform picker searching, refer to the following keymaps:
+Snacks.picker and Telescope helps you navigate the code. To perform picker
+searching, refer to the following keymaps:
 
 | keymap | desc |
 |--------|------|
+| `<leader>fb` | Open file browser |
+| `<leader>sf` | Lists files in your current working directory, respects .gitignore |
+| `<leader>sg` | Search for a string in your current working directory and get results live as you type |
 | `<leader>sh` | Search Help |
 | `<leader>sm` | Search Man pages |
+| `<leader>sp` | Search Project |
 | `<leader>ss` | Search Select Picker |
-| `<leader>sf` | Lists files in your current working directory, respects .gitignore |
-| `<leader>fb` | Open file browser |
-| `<leader>sg` | Search for a string in your current working directory and get results live as you type |
 | `<leader>sw` | Searches for the string under your cursor or selection in your current working directory |
-| `grn` | Rename the variable under your cursor
 | `gra` | Excute a code action |
-| `grr` | Find references for the word under your cursor |
-| `gri` | Jump to the implementation of the word under your cursor |
+| `grc` | Lists LSP incoming calls for word under the cursor |
 | `grd` | Goto the definition of the type of the word under the cursor |
 | `grD` | Goto the declaration, e.g., in C this would take you to the header |
+| `gri` | Jump to the implementation of the word under your cursor |
+| `grn` | Rename the variable under your cursor
 | `gO` | Find all the symbols in your current document |
+| `grr` | Find references for the word under your cursor |
 | `grt` | Jump to the type of the word under your cursor |
-| `grc` | Lists LSP incoming calls for word under the cursor |
 
 FYI, the keymaps starting with `g` are default mappings introduced starting neovim
 v0.11.0.
