@@ -217,7 +217,9 @@ return {
       { '<leader>s.', function() Snacks.picker.recent() end, desc = '[S]earch Recent Files ("." for repeat)' },
       { '<leader><leader>', function() Snacks.picker.buffers() end, desc = '[ ] Find existing buffers' },
       { '<leader>s/', function() Snacks.picker.grep_buffers() end, desc = '[/] Fuzzily search in current buffer' },
+      ---@diagnostic disable-next-line: undefined-field
       { '<leader>st', function() Snacks.picker.todo_comments() end, desc = '[S]earch [T]odo' },
+      ---@diagnostic disable-next-line: undefined-field
       { '<leader>sT', function () Snacks.picker.todo_comments({ keywords = { 'TODO', 'FIX', 'FIXME' } }) end, desc = '[S]earch [T]odo/Fix/Fixme' },
       -- stylua: ignore end
     },
@@ -248,6 +250,7 @@ return {
       }
       pcall(require('telescope').load_extension 'persisted')
 
+      ---@diagnostic disable-next-line: undefined-field
       vim.opt.sessionoptions:append 'globals'
       vim.api.nvim_create_autocmd({ 'User' }, {
         pattern = 'PersistedSavePre',
@@ -259,6 +262,7 @@ return {
 
       vim.api.nvim_create_autocmd('User', {
         pattern = 'PersistedTelescopeLoadPre',
+        ---@diagnostic disable-next-line: unused-local
         callback = function(session)
           -- Save the currently loaded session passing in the path to the current session
           require('persisted').save { session = vim.g.persisted_loaded_session }
