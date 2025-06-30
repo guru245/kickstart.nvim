@@ -72,9 +72,9 @@ return {
     },
     opts = {
       preview = {
-        icon_provider = 'internal',
-        'mini',
-        'devicons',
+        icon_provider = 'internal', -- 'mini', 'devicons',
+        hybrid_modes = { 'n', 'no', 'c' },
+        linewise_hybrid_mode = true,
       },
     },
   },
