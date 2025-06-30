@@ -731,7 +731,6 @@ require('lazy').setup({
         jump = { float = true, wrap = false },
         severity_sort = true,
         float = { source = 'if_many' },
-        underline = { severity = vim.diagnostic.severity.ERROR },
         signs = vim.g.have_nerd_font and {
           text = {
             [vim.diagnostic.severity.ERROR] = '󰅚 ',
@@ -740,7 +739,10 @@ require('lazy').setup({
             [vim.diagnostic.severity.HINT] = '󰌶 ',
           },
         } or {},
-        virtual_lines = true,
+        virtual_text = {
+          source = 'if_many',
+          spacing = 2,
+        },
       }
 
       -- LSP servers and clients are able to communicate to each other what features they support.
@@ -761,7 +763,6 @@ require('lazy').setup({
       local servers = {
         clangd = {
           'clangd',
-          '--clang-tidy',
         },
         -- gopls = {},
         pylsp = {},
