@@ -240,6 +240,23 @@ You can find the intuitive mappings [here](https://github.com/tmux-plugins/tmux-
 
 
 
+## Persisted Usage for Session Management
+
+Add the root of your source directory to `allowed_dir`:
+```lua
+ 'olimorris/persisted.nvim',
+ ...
+ config = function()
+   local utils = require 'persisted.utils'
+   local allowed_dirs = {
+     '~/.local/src',
+   }
+ ...
+ end
+```
+
+
+
 ## Gitsigns Usage
 
 This plugin is convenient to stage, reset and navigate hunks. Check out the [keymaps](https://github.com/lewis6991/gitsigns.nvim?tab=readme-ov-file#keymaps)
