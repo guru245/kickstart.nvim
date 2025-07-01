@@ -225,7 +225,7 @@ return {
       { '<leader>sr', function() Snacks.picker.resume() end, desc = '[S]earch [R]esume' },
       { '<leader>s.', function() Snacks.picker.recent() end, desc = '[S]earch Recent Files ("." for repeat)' },
       { '<leader><leader>', function() Snacks.picker.buffers() end, desc = '[ ] Find existing buffers' },
-      { '<leader>s/', function() Snacks.picker.grep_buffers() end, desc = '[/] Fuzzily search in current buffer' },
+      { '<leader>s/', function() Snacks.picker.grep_buffers() end, desc = '[S]earch [/] in Open Files' },
       ---@diagnostic disable-next-line: undefined-field
       { '<leader>st', function() Snacks.picker.todo_comments() end, desc = '[S]earch [T]odo' },
       ---@diagnostic disable-next-line: undefined-field
