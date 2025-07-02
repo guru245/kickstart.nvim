@@ -63,8 +63,7 @@ return {
   },
   {
     'OXY2DEV/markview.nvim',
-    lazy = false,
-    version = '*',
+    event = 'VeryLazy',
     dependencies = {
       'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
       'echasnovski/mini.icons',
