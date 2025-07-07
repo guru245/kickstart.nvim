@@ -138,7 +138,7 @@ is running in the following environments:
 
 4. Install misc packages for Neovim
 
-   ```
+   ```bash
    sudo apt install ripgrep fzf fd-find bear
    ln -s $(which fdfind) ~/.local/bin/fd
    ```
@@ -290,7 +290,7 @@ This helps you write comments. See all mappings [here](https://github.com/numToS
 
 ![telescope](./.img/telescope.png)
 
-Snacks.picker and Telescope helps you navigate the code. To perform picker
+Snacks.picker and Telescope help you navigate the code. To perform picker
 searching, refer to the following keymaps:
 
 | keymap | desc |
