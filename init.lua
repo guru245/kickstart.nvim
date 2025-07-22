@@ -849,16 +849,9 @@ require('lazy').setup({
     'stevearc/conform.nvim',
     event = { 'BufWritePre' },
     cmd = { 'ConformInfo' },
-    --[[ keys = {
-      {
-        '<leader>f',
-        function()
-          require('conform').format { async = true, lsp_format = 'fallback' }
-        end,
-        mode = '',
-        desc = '[F]ormat buffer',
-      },
-    }, ]]
+    keys = {
+      { '<C-k>', '<Cmd>Format<CR>', mode = { 'n', 'v' } },
+    },
     opts = {
       notify_on_error = false,
       --[[ format_on_save = function(bufnr)
@@ -907,7 +900,6 @@ require('lazy').setup({
         range = range,
       }
     end, { range = true }),
-    vim.keymap.set({ 'n', 'v' }, '<C-k>', '<Cmd>Format<CR>'),
   },
 
   { -- Autocompletion
