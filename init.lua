@@ -427,7 +427,7 @@ require('lazy').setup({
     'nvim-telescope/telescope.nvim',
     event = 'VimEnter',
     dependencies = {
-      'guru245/plenary.nvim',
+      'nvim-lua/plenary.nvim',
       { -- If encountering errors, see telescope-fzf-native README for installation instructions
         'nvim-telescope/telescope-fzf-native.nvim',
 
@@ -1072,7 +1072,7 @@ require('lazy').setup({
   {
     'folke/todo-comments.nvim',
     event = 'VimEnter',
-    dependencies = { 'guru245/plenary.nvim' },
+    dependencies = { 'nvim-lua/plenary.nvim' },
     opts = {},
   },
 
