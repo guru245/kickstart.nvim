@@ -82,7 +82,7 @@ is running in the following environments:
    sudo apt install ssh keychain make cmake python3-cryptography \
    clang-format automake autoconf pkg-config python3-pip clang \ 
    libtool-bin npm curl build-essential unzip gettext ninja-build \
-   clang-tidy yacc libevent-dev bison libncurses-dev
+   clang-tidy yacc libevent-dev bison libncurses-dev libsqlite3-dev
    ```
 
 2. Install [universal-ctags](https://github.com/universal-ctags/ctags)
@@ -142,6 +142,9 @@ is running in the following environments:
    sudo apt install ripgrep fzf fd-find bear
    ln -s $(which fdfind) ~/.local/bin/fd
    ```
+> [!Note]
+> `fd` or `fdfind` in Ubuntu is too old. You'd better copy the prebuilt fd
+> from [here](https://github.com/sharkdp/fd/releases) to ${HOME}/.local/bin
 
 
 
