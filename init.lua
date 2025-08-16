@@ -410,7 +410,7 @@ require('lazy').setup({
         { '<leader>t', icon = ' ', group = '[T]oggle' },
         { '<leader>h', icon = '󰊢', group = 'Git [H]unk', mode = { 'n', 'v' } },
         { '<leader>d', icon = '󰊢', group = '[D]iffview', mode = { 'n', 'v' } },
-        { 'gr', icon = '󱁽', group = 'LSP: ' },
+        { 'gr', icon = '󱁽', group = 'LSP: ', mode = { 'n' } },
       },
     },
     vim.keymap.set('n', '<F1>', '<Cmd>WhichKey<CR>'),
