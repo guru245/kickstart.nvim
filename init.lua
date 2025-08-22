@@ -499,6 +499,7 @@ require('lazy').setup({
             grouped = true,
             display_stat = false,
             auto_depth = true,
+            follow_symlinks = true,
             hidden = { file_browser = true, folder_browser = true },
             mappings = {
               ['n'] = {
