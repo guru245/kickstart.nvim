@@ -361,7 +361,7 @@ require('lazy').setup({
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
     dependencies = {
       'nvim-tree/nvim-web-devicons',
-      'echasnovski/mini.icons',
+      'nvim-mini/mini.icons',
     },
     opts = {
       -- delay between pressing a key and opening which-key (milliseconds)
@@ -1078,7 +1078,7 @@ require('lazy').setup({
   },
 
   --[[ { -- Collection of various small independent plugins/modules
-    'echasnovski/mini.nvim',
+    'nvim-mini/mini.nvim',
     config = function()
       -- Better Around/Inside textobjects
       --
@@ -1111,7 +1111,7 @@ require('lazy').setup({
       end
 
       -- ... and there is more!
-      --  Check out: https://github.com/echasnovski/mini.nvim
+      --  Check out: https://github.com/nvim-mini/mini.nvim
     end,
   }, ]]
   { -- Highlight, edit, and navigate code

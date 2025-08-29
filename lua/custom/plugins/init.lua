@@ -66,7 +66,7 @@ return {
     event = 'VeryLazy',
     dependencies = {
       'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
-      'echasnovski/mini.icons',
+      'nvim-mini/mini.icons',
       'saghen/blink.cmp',
     },
     opts = {
@@ -173,7 +173,7 @@ return {
     ---@type snacks.Config
     dependencies = {
       { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
-      'echasnovski/mini.icons',
+      'nvim-mini/mini.icons',
     },
     opts = {
       -- your configuration comes here
