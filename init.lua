@@ -671,7 +671,7 @@ require('lazy').setup({
           map('grt', function() Snacks.picker.lsp_type_definitions() end, '[G]oto [T]ype Definition')
 
           -- Jump to the caller of the word under your cursor.
-          map('grc', require('telescope.builtin').lsp_incoming_calls, '[G]oto [C]allers')
+          map('grc', function() Snacks.picker.lsp_incoming_calls() end, '[G]oto [C]allers')
 
           map('<leader>td', function() vim.diagnostic.enable(not vim.diagnostic.is_enabled()) end, '[T]oggle [D]iagnostics')
           -- stylua: ignore end
